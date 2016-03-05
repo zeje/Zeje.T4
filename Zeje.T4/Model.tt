@@ -1,0 +1,48 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core.dll" #>
+<#@ assembly name="System.Configuration.dll" #>
+<#@ assembly name="System.Data.dll" #>
+<#@ assembly name="System.Data.DataSetExtensions.dll" #>
+<#@ assembly name="System.Xml.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Configuration" #>
+<#@ import namespace="System.IO" #>
+<#@ assembly name="$(SolutionDir)Zeje.T4DLL\bin\Debug\Zeje.T4DLL.dll" #>
+<#@ import namespace="Zeje.T4DLL" #>
+<#@ output extension=".cs" #>
+
+using System;
+using System.Collections;
+namespace Zeje.T4DLL
+{
+<#
+    string connectionString = "data source=localhost;initial catalog=Zeje.Hr;user id=sa;password=123456;connection timeout=15";
+    List<DbTable> lstTable = Zeje.T4DLL.DbHelper.GetDbTables(connectionString,null);
+    for(int i = 0; i < lstTable.Count; i++)
+    {
+       DbTable dbTable = lstTable[i];
+#>
+    /// <summary><#=dbTable.remark#>
+    /// </summary> 
+    public partial class <#=dbTable.tableName#>
+    {
+<# 
+foreach(DbColumn column in DbHelper.GetDbColumns(connectionString, dbTable.tableName))
+{
+#>
+        /// <summary><#=column.remark#>
+        /// </summary>        
+        public <#= column.cSharpType #><# if(column.commonType.IsValueType && column.isNullable){#>?<#}#> <#=column.columnName#> { get; set; }
+<#
+}
+#>
+    }
+<#
+}
+#>
+}
