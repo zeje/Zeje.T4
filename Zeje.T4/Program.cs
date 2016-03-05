@@ -9,6 +9,7 @@ namespace Zeje.T4
     {
         static void Main(string[] args)
         {
+            Console.Read();
         }
     }
 }

@@ -12,37 +12,34 @@ namespace Zeje.T4DLL
         public int Id { get; set; }
         /// <summary>组织编号
         /// </summary>        
-        public string OrgCode { get; set; }
+        public string orgCode { get; set; }
         /// <summary>组织名称
         /// </summary>        
-        public string OrgName { get; set; }
+        public string orgName { get; set; }
         /// <summary>
         /// </summary>        
-        public string ParentOrgCode { get; set; }
-        /// <summary>组织树（表示层级）
-        /// </summary>        
-        public string OrgTree { get; set; }
+        public string parentOrgCode { get; set; }
         /// <summary>
         /// </summary>        
-        public string Remark { get; set; }
+        public string remark { get; set; }
         /// <summary>添加人
         /// </summary>        
-        public string AddPerson { get; set; }
+        public string addPerson { get; set; }
         /// <summary>添加时间
         /// </summary>        
-        public DateTime AddTime { get; set; }
+        public DateTime addTime { get; set; }
         /// <summary>更新人
         /// </summary>        
-        public string UpdatePerson { get; set; }
+        public string updatePerson { get; set; }
         /// <summary>更新时间
         /// </summary>        
-        public DateTime UpdateTime { get; set; }
+        public DateTime updateTime { get; set; }
         /// <summary>删除人
         /// </summary>        
-        public string DeletePerson { get; set; }
+        public string deletePerson { get; set; }
         /// <summary>删除时间
         /// </summary>        
-        public DateTime? DeleteTime { get; set; }
+        public DateTime? deleteTime { get; set; }
     }
     /// <summary>角色具有人员关系表
     /// </summary> 
@@ -50,31 +47,31 @@ namespace Zeje.T4DLL
     {
         /// <summary>
         /// </summary>        
-        public int Id { get; set; }
+        public int id { get; set; }
         /// <summary>
         /// </summary>        
-        public string HrOrgCode { get; set; }
+        public string hrOrgCode { get; set; }
         /// <summary>
         /// </summary>        
-        public string HrStaffCode { get; set; }
+        public string hrStaffCode { get; set; }
         /// <summary>添加人
         /// </summary>        
-        public string AddPerson { get; set; }
+        public string addPerson { get; set; }
         /// <summary>添加时间
         /// </summary>        
-        public DateTime AddTime { get; set; }
+        public DateTime addTime { get; set; }
         /// <summary>更新人
         /// </summary>        
-        public string UpdatePerson { get; set; }
+        public string updatePerson { get; set; }
         /// <summary>更新时间
         /// </summary>        
-        public DateTime UpdateTime { get; set; }
+        public DateTime updateTime { get; set; }
         /// <summary>删除人
         /// </summary>        
-        public string DeletePerson { get; set; }
+        public string deletePerson { get; set; }
         /// <summary>删除时间
         /// </summary>        
-        public DateTime? DeleteTime { get; set; }
+        public DateTime? deleteTime { get; set; }
     }
     /// <summary>添加人
     /// </summary> 
@@ -82,37 +79,37 @@ namespace Zeje.T4DLL
     {
         /// <summary>
         /// </summary>        
-        public int Id { get; set; }
+        public int id { get; set; }
         /// <summary>
         /// </summary>        
-        public string LevelCode { get; set; }
+        public string levelCode { get; set; }
         /// <summary>
         /// </summary>        
-        public string Code { get; set; }
+        public string code { get; set; }
         /// <summary>
         /// </summary>        
-        public string Name { get; set; }
+        public string name { get; set; }
         /// <summary>
         /// </summary>        
-        public int? SortId { get; set; }
+        public int? sortId { get; set; }
         /// <summary>添加人
         /// </summary>        
-        public string AddPerson { get; set; }
+        public string addPerson { get; set; }
         /// <summary>添加时间
         /// </summary>        
-        public DateTime AddTime { get; set; }
+        public DateTime addTime { get; set; }
         /// <summary>更新人
         /// </summary>        
-        public string UpdatePerson { get; set; }
+        public string updatePerson { get; set; }
         /// <summary>更新时间
         /// </summary>        
-        public DateTime UpdateTime { get; set; }
+        public DateTime updateTime { get; set; }
         /// <summary>删除人
         /// </summary>        
-        public string DeletePerson { get; set; }
+        public string deletePerson { get; set; }
         /// <summary>删除时间
         /// </summary>        
-        public DateTime? DeleteTime { get; set; }
+        public DateTime? deleteTime { get; set; }
     }
     /// <summary>排序号
     /// </summary> 
@@ -120,37 +117,37 @@ namespace Zeje.T4DLL
     {
         /// <summary>
         /// </summary>        
-        public int Id { get; set; }
+        public int id { get; set; }
         /// <summary>
         /// </summary>        
-        public string Code { get; set; }
+        public string code { get; set; }
         /// <summary>
         /// </summary>        
-        public string Name { get; set; }
+        public string name { get; set; }
         /// <summary>
         /// </summary>        
-        public int? ParentId { get; set; }
+        public int? parentId { get; set; }
         /// <summary>排序号
         /// </summary>        
-        public int? SortId { get; set; }
+        public int? sortId { get; set; }
         /// <summary>添加人
         /// </summary>        
-        public string AddPerson { get; set; }
+        public string addPerson { get; set; }
         /// <summary>添加时间
         /// </summary>        
-        public DateTime? AddTime { get; set; }
+        public DateTime? addTime { get; set; }
         /// <summary>更新人
         /// </summary>        
-        public string UpdatePerson { get; set; }
+        public string updatePerson { get; set; }
         /// <summary>更新时间
         /// </summary>        
-        public DateTime? UpdateTime { get; set; }
+        public DateTime? updateTime { get; set; }
         /// <summary>删除人
         /// </summary>        
-        public string DeletePerson { get; set; }
+        public string deletePerson { get; set; }
         /// <summary>删除时间
         /// </summary>        
-        public DateTime? DeleteTime { get; set; }
+        public DateTime? deleteTime { get; set; }
     }
     /// <summary>员工表
     /// </summary> 
@@ -158,39 +155,39 @@ namespace Zeje.T4DLL
     {
         /// <summary>ID
         /// </summary>        
-        public string Id { get; set; }
+        public string id { get; set; }
         /// <summary>人才编号
         /// </summary>        
-        public string StaffCode { get; set; }
+        public string staffCode { get; set; }
         /// <summary>人才名称
         /// </summary>        
-        public string Name { get; set; }
+        public string name { get; set; }
         /// <summary>
         /// </summary>        
-        public string PositionLevelCode { get; set; }
+        public string positionLevelCode { get; set; }
         /// <summary>
         /// </summary>        
-        public string PositionCode { get; set; }
+        public string positionCode { get; set; }
         /// <summary>
         /// </summary>        
-        public bool IsVisual { get; set; }
+        public bool isVisual { get; set; }
         /// <summary>添加人
         /// </summary>        
-        public string AddPerson { get; set; }
+        public string addPerson { get; set; }
         /// <summary>添加时间
         /// </summary>        
-        public DateTime AddTime { get; set; }
+        public DateTime addTime { get; set; }
         /// <summary>更新人
         /// </summary>        
-        public string UpdatePerson { get; set; }
+        public string updatePerson { get; set; }
         /// <summary>更新时间
         /// </summary>        
-        public DateTime UpdateTime { get; set; }
+        public DateTime updateTime { get; set; }
         /// <summary>删除人
         /// </summary>        
-        public string DeletePerson { get; set; }
+        public string deletePerson { get; set; }
         /// <summary>删除时间
         /// </summary>        
-        public DateTime? DeleteTime { get; set; }
+        public DateTime? deleteTime { get; set; }
     }
 }
