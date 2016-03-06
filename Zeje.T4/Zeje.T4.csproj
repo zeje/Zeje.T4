@@ -41,6 +41,8 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Demo.cs" />
     <Compile Include="EF5.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -68,8 +71,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EF6.tt</DependentUpon>
     </Compile>
+    <Compile Include="HrOrg.cs">
+      <DependentUpon>Zeje.Hr.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrOrgHStaff.cs">
+      <DependentUpon>Zeje.Hr.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrPosition.cs">
+      <DependentUpon>Zeje.Hr.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrPositionLevel.cs">
+      <DependentUpon>Zeje.Hr.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrStaff.cs">
+      <DependentUpon>Zeje.Hr.Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextTemplate_.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextTemplate_.tt</DependentUpon>
+    </Compile>
     <Compile Include="Zeje.Hr.Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,6 +121,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EF6.cs</LastGenOutput>
     </Content>
+    <Content Include="USB的红包.txt">
+      <DependentUpon>TextTemplate_.tt</DependentUpon>
+    </Content>
     <Content Include="Zeje.Hr.Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Zeje.Hr.Model.cs</LastGenOutput>
@@ -108,11 +134,21 @@
     </Content>
     <Content Include="TextTemplate_.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TextTemplate_.txt</LastGenOutput>
+      <LastGenOutput>TextTemplate_.cs</LastGenOutput>
     </Content>
-    <Content Include="TextTemplate_.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
+    <Content Include="女屌丝的红包.txt">
+      <DependentUpon>TextTemplate_.tt</DependentUpon>
+    </Content>
+    <Content Include="女神的红包.txt">
+      <DependentUpon>TextTemplate_.tt</DependentUpon>
+    </Content>
+    <Content Include="男屌丝的红包.txt">
+      <DependentUpon>TextTemplate_.tt</DependentUpon>
+    </Content>
+    <Content Include="男神的红包.txt">
+      <DependentUpon>TextTemplate_.tt</DependentUpon>
+    </Content>
+    <Content Include="黑木耳的红包.txt">
       <DependentUpon>TextTemplate_.tt</DependentUpon>
     </Content>
   </ItemGroup>
