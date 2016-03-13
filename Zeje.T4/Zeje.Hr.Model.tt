@@ -1,18 +1,9 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ assembly name="System.Core.dll" #>
-<#@ assembly name="System.Configuration.dll" #>
 <#@ assembly name="System.Data.dll" #>
-<#@ assembly name="System.Data.DataSetExtensions.dll" #>
-<#@ assembly name="System.Xml.dll" #>
 <#@ assembly name="$(SolutionDir)Zeje.T4DLL\bin\Debug\Zeje.T4DLL.dll" #>
 <#@ import namespace="System" #>
-<#@ import namespace="System.Xml" #>
-<#@ import namespace="System.Linq" #>
-<#@ import namespace="System.Data" #>
-<#@ import namespace="System.Data.SqlClient" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#@ import namespace="System.Configuration" #>
-<#@ import namespace="System.IO" #>
 <#@ import namespace="Zeje.T4DLL" #>
 
 
