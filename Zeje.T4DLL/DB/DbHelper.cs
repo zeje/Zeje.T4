@@ -64,10 +64,10 @@ ORDER BY
                 DataTable dt = GetDataTable(sqlConnection, sql);
                 return dt.Rows.Cast<DataRow>().Select(row => new DbTable
                 {
-                    tableName = row.Field<string>("tablename"),
-                    schemaName = row.Field<string>("schemname"),
+                    tableName = row.Field<string>("tablename") ?? "",
+                    schemaName = row.Field<string>("schemname") ?? "",
                     rows = row.Field<int>("rows"),
-                    remark = row.Field<string>("remark"),
+                    remark = row.Field<string>("remark") ?? "",
                     hasPrimaryKey = row.Field<bool>("hasPrimaryKey")
                 }).ToList();
             }
@@ -155,14 +155,14 @@ ORDER BY
             {
                 columnID = row.Field<int>("columnID"),
                 isPrimaryKey = row.Field<bool>("isPrimaryKey"),
-                columnName = row.Field<string>("columnName"),
-                columnType = row.Field<string>("columnType"),
+                columnName = row.Field<string>("columnName") ?? "",
+                columnType = row.Field<string>("columnType") ?? "",
                 isIdentity = row.Field<bool>("isIdentity"),
                 isNullable = row.Field<bool>("isNullable"),
                 byteLength = row.Field<int>("byteLength"),
                 charLength = row.Field<int>("charLength"),
                 scale = row.Field<int>("scale"),
-                remark = row["remark"].ToString()
+                remark = row.Field<string>("remark") ?? ""
             }).ToList();
         }
         /// <summary>执行命令获得数据

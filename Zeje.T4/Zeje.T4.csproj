@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Zeje.T4</RootNamespace>
     <AssemblyName>Zeje.T4</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,22 +32,26 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.10.0.30319\lib\net40\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbBase.cs" />
     <Compile Include="Demo.cs" />
     <Compile Include="EF5.Context.cs">
       <AutoGen>True</AutoGen>
@@ -76,36 +83,80 @@
       <DependentUpon>EF6.tt</DependentUpon>
     </Compile>
     <Compile Include="HrOrg.cs">
-      <DependentUpon>Zeje.Hr.Model.tt</DependentUpon>
+      <DependentUpon>Zeje.Hr.Dapper.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrOrgBLL.cs">
+      <DependentUpon>Zeje.Hr.Dapper.BLL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrOrgDAL.cs">
+      <DependentUpon>Zeje.Hr.Dapper.DAL.tt</DependentUpon>
     </Compile>
     <Compile Include="HrOrgHStaff.cs">
-      <DependentUpon>Zeje.Hr.Model.tt</DependentUpon>
+      <DependentUpon>Zeje.Hr.Dapper.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrOrgHStaffBLL.cs">
+      <DependentUpon>Zeje.Hr.Dapper.BLL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrOrgHStaffDAL.cs">
+      <DependentUpon>Zeje.Hr.Dapper.DAL.tt</DependentUpon>
     </Compile>
     <Compile Include="HrPosition.cs">
-      <DependentUpon>Zeje.Hr.Model.tt</DependentUpon>
+      <DependentUpon>Zeje.Hr.Dapper.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrPositionBLL.cs">
+      <DependentUpon>Zeje.Hr.Dapper.BLL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrPositionDAL.cs">
+      <DependentUpon>Zeje.Hr.Dapper.DAL.tt</DependentUpon>
     </Compile>
     <Compile Include="HrPositionLevel.cs">
-      <DependentUpon>Zeje.Hr.Model.tt</DependentUpon>
+      <DependentUpon>Zeje.Hr.Dapper.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrPositionLevelBLL.cs">
+      <DependentUpon>Zeje.Hr.Dapper.BLL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrPositionLevelDAL.cs">
+      <DependentUpon>Zeje.Hr.Dapper.DAL.tt</DependentUpon>
     </Compile>
     <Compile Include="HrStaff.cs">
-      <DependentUpon>Zeje.Hr.Model.tt</DependentUpon>
+      <DependentUpon>Zeje.Hr.Dapper.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrStaffBLL.cs">
+      <DependentUpon>Zeje.Hr.Dapper.BLL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HrStaffDAL.cs">
+      <DependentUpon>Zeje.Hr.Dapper.DAL.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Zeje.Hr.Dapper.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagramsBLL.cs">
+      <DependentUpon>Zeje.Hr.Dapper.BLL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagramsDAL.cs">
+      <DependentUpon>Zeje.Hr.Dapper.DAL.tt</DependentUpon>
+    </Compile>
     <Compile Include="TextTemplate_.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TextTemplate_.tt</DependentUpon>
     </Compile>
-    <Compile Include="Zeje.Hr.Model.cs">
+    <Compile Include="Zeje.Hr.Dapper.BLL.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Zeje.Hr.Model.tt</DependentUpon>
+      <DependentUpon>Zeje.Hr.Dapper.BLL.tt</DependentUpon>
     </Compile>
-    <Compile Include="RuntimeTextTemplate_.cs">
+    <Compile Include="Zeje.Hr.Dapper.DAL1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RuntimeTextTemplate_.tt</DependentUpon>
+      <DependentUpon>Zeje.Hr.Dapper.DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zeje.Hr.Dapper.Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Zeje.Hr.Dapper.Model.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -128,13 +179,17 @@
     <Content Include="USB的红包.txt">
       <DependentUpon>TextTemplate_.tt</DependentUpon>
     </Content>
-    <Content Include="Zeje.Hr.Model.tt">
+    <Content Include="Zeje.Hr.Dapper.BLL.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Zeje.Hr.Model.cs</LastGenOutput>
+      <LastGenOutput>Zeje.Hr.Dapper.BLL.cs</LastGenOutput>
     </Content>
-    <Content Include="RuntimeTextTemplate_.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>RuntimeTextTemplate_.cs</LastGenOutput>
+    <Content Include="Zeje.Hr.Dapper.DAL.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Zeje.Hr.Dapper.DAL1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Zeje.Hr.Dapper.Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Zeje.Hr.Dapper.Model.cs</LastGenOutput>
     </Content>
     <Content Include="TextTemplate_.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -160,14 +215,18 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Zeje.T4DLL\Zeje.T4DLL.csproj">
-      <Project>{6a4e8c79-111b-4f73-b96f-503e5f017ee6}</Project>
-      <Name>Zeje.T4DLL</Name>
+    <ProjectReference Include="..\Zeje.T4_\Zeje.T4_.csproj">
+      <Project>{97c7d28a-c611-45a6-b92c-bf3e28b350cd}</Project>
+      <Name>Zeje.T4_</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
