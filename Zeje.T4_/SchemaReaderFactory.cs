@@ -5,7 +5,6 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using EnvDTE;
 
 namespace Zeje.T4_
 {
