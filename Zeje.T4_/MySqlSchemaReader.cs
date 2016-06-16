@@ -55,6 +55,10 @@ namespace Zeje.T4_
             }
             return result;
         }
+        public override DataTable ReadTable(DbConnection connection, DbProviderFactory factory, string tableName)
+        {
+            return null;
+        }
         static string GetPropertyType(DataRow row)
         {
             bool bUnsigned = row["COLUMN_TYPE"].ToString().IndexOf("unsigned") >= 0;

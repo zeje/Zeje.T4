@@ -79,6 +79,10 @@ namespace Zeje.T4_
                 return result;
             }
         }
+        public override DataTable ReadTable(DbConnection connection, DbProviderFactory factory, string tableName)
+        {
+            return null;
+        }
         string GetPK(string table)
         {
             string sql = @"select column_name from USER_CONSTRAINTS uc
