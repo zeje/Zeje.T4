@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
@@ -13,25 +14,66 @@ namespace Zeje.T4_
         public SchemaReaderFactory()
         {
         }
-        //public SchemaReaderFactory(ITextTemplatingEngineHost p_Host, TextTransformation p_outer)
-        //{
-        //    //_host = p_Host;
-        //    //_outer = p_outer;
-        //}
 
         public string ClassPrefix = "";
         public string ClassSuffix = "";
         public string SchemaName = null;
         public bool IncludeViews = false;
-        public string ConnectionString = "server=10.8.7.4;uid=sa;pwd=Aa83986588;database=WynWXQY;";
+        public string ConnectionString = "server=localhost;uid=sa;pwd=123456;database=Zeje;";
         public string ProviderName = "System.Data.SqlClient";
-
-        //private ITextTemplatingEngineHost _host;
-        //public TextTransformation _outer;
-
+        /// <summary>加载表结构
+        /// </summary>
+        /// <returns></returns>
         public DBTables LoadTables()
         {
-            //_outer.WriteLine("// 此文件由Zeje T4模板生产");
+            return DoAction<DBTables>(new Func<DbConnection, DbProviderFactory, SchemaReader, DBTables>((conn, _factory, reader) =>
+            {
+                DBTables result = reader.ReadSchema(conn, _factory);
+                // Remove unrequired tables/views
+                for (int i = result.Count - 1; i >= 0; i--)
+                {
+                    if (SchemaName != null && string.Compare(result[i].Schema, SchemaName, true) != 0)
+                    {
+                        result.RemoveAt(i);
+                        continue;
+                    }
+                    if (!IncludeViews && result[i].IsView)
+                    {
+                        result.RemoveAt(i);
+                        continue;
+                    }
+                }
+                var rxClean = new Regex("^(Equals|GetHashCode|GetType|ToString|repo|Save|IsNew|Insert|Update|Delete|Exists|SingleOrDefault|Single|First|FirstOrDefault|Fetch|Page|Query)$");
+                foreach (var t in result)
+                {
+                    t.ClassName = ClassPrefix + t.ClassName + ClassSuffix;
+                    foreach (var c in t.Columns)
+                    {
+                        c.PropertyName = rxClean.Replace(c.PropertyName, "_$1");
+                        // Make sure property name doesn't clash with class name
+                        if (c.PropertyName == t.ClassName)
+                            c.PropertyName = "_" + c.PropertyName;
+                    }
+                }
+                return result;
+
+            }));
+        }
+        /// <summary>加载表数据
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
+        public DataTable LoadTableData(string tableName)
+        {
+            return DoAction<DataTable>(new Func<DbConnection, DbProviderFactory, SchemaReader, DataTable>((conn, _factory, reader) =>
+            {
+                DataTable dt = reader.ReadTable(conn, _factory, tableName);
+                return dt;
+            }));
+        }
+
+        private T DoAction<T>(Func<DbConnection, DbProviderFactory, SchemaReader, T> func) where T : class,new()
+        {
             DbProviderFactory _factory;
             try
             {
@@ -40,15 +82,10 @@ namespace Zeje.T4_
             catch (Exception x)
             {
                 var error = x.Message.Replace("\r\n", "\n").Replace("\n", " ");
-                //_outer.Warning(string.Format("数据访问接口加载失败 `{0}` - {1}", ProviderName, error));
-                //_outer.WriteLine("// -----------------------------------------------------------------------------------------");
-                //_outer.WriteLine("// 数据访问接口加载失败 `{0}` - {1}", ProviderName, error);
-                //_outer.WriteLine("// -----------------------------------------------------------------------------------------");
-                return new DBTables();
+                return new T();
             }
             try
             {
-                DBTables result;
                 using (var conn = _factory.CreateConnection())
                 {
                     conn.ConnectionString = ConnectionString;
@@ -79,45 +116,17 @@ namespace Zeje.T4_
                         // Assume SQL Server
                         reader = new SqlServerSchemaReader();
                     }
-                    result = reader.ReadSchema(conn, _factory);
-                    // Remove unrequired tables/views
-                    for (int i = result.Count - 1; i >= 0; i--)
-                    {
-                        if (SchemaName != null && string.Compare(result[i].Schema, SchemaName, true) != 0)
-                        {
-                            result.RemoveAt(i);
-                            continue;
-                        }
-                        if (!IncludeViews && result[i].IsView)
-                        {
-                            result.RemoveAt(i);
-                            continue;
-                        }
-                    }
+                    //执行委托方法
+                    T result = func(conn, _factory, reader);
+                    //关闭
                     conn.Close();
-                    var rxClean = new Regex("^(Equals|GetHashCode|GetType|ToString|repo|Save|IsNew|Insert|Update|Delete|Exists|SingleOrDefault|Single|First|FirstOrDefault|Fetch|Page|Query)$");
-                    foreach (var t in result)
-                    {
-                        t.ClassName = ClassPrefix + t.ClassName + ClassSuffix;
-                        foreach (var c in t.Columns)
-                        {
-                            c.PropertyName = rxClean.Replace(c.PropertyName, "_$1");
-                            // Make sure property name doesn't clash with class name
-                            if (c.PropertyName == t.ClassName)
-                                c.PropertyName = "_" + c.PropertyName;
-                        }
-                    }
+                    //返回
                     return result;
                 }
             }
-            catch (Exception x)
+            catch
             {
-                var error = x.Message.Replace("\r\n", "\n").Replace("\n", " ");
-                //_outer.Warning(string.Format("读取数据模型失败 - {0}", error));
-                //_outer.WriteLine("// -----------------------------------------------------------------------------------------");
-                //_outer.WriteLine("// 读取数据模型失败 - {0}", error);
-                //_outer.WriteLine("// -----------------------------------------------------------------------------------------");
-                return new DBTables();
+                return new T();
             }
         }
     }

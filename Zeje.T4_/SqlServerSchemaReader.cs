@@ -53,6 +53,11 @@ namespace Zeje.T4_
             }
             return result;
         }
+        public override DataTable ReadTable(DbConnection connection, DbProviderFactory factory, string tableName)
+        {
+            return null;
+        }
+
         DbConnection _connection;
         DbProviderFactory _factory;
         List<DBColumn> LoadColumns(DBTable tbl)
