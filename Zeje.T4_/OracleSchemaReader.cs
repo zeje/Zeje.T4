@@ -48,6 +48,20 @@ namespace Zeje.T4_
             }
             return result;
         }
+        public override DataTable ReadTable(DbConnection connection, DbProviderFactory factory, string tableName)
+        {
+            DataTable dt;
+            _factory = factory;
+            var cmd = _factory.CreateCommand();
+            cmd.CommandText = "select * from " + tableName;
+            cmd.CommandType = CommandType.Text;
+            DbDataAdapter adapter = factory.CreateDataAdapter();
+            adapter.SelectCommand = cmd;
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+            dt = ds.Tables[0];
+            return dt;
+        }
         DbConnection _connection;
         DbProviderFactory _factory;
         List<DBColumn> LoadColumns(DBTable tbl)
@@ -79,10 +93,7 @@ namespace Zeje.T4_
                 return result;
             }
         }
-        public override DataTable ReadTable(DbConnection connection, DbProviderFactory factory, string tableName)
-        {
-            return null;
-        }
+       
         string GetPK(string table)
         {
             string sql = @"select column_name from USER_CONSTRAINTS uc

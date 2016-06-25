@@ -57,7 +57,16 @@ namespace Zeje.T4_
         }
         public override DataTable ReadTable(DbConnection connection, DbProviderFactory factory, string tableName)
         {
-            return null;
+            DataTable dt;
+            var cmd = factory.CreateCommand();
+            cmd.CommandText = "select * from " + tableName;
+            cmd.CommandType = CommandType.Text;
+            DbDataAdapter adapter = factory.CreateDataAdapter();
+            adapter.SelectCommand = cmd;
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+            dt = ds.Tables[0];
+            return dt;
         }
         static string GetPropertyType(DataRow row)
         {
