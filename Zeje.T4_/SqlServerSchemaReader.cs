@@ -34,7 +34,7 @@ namespace Zeje.T4_
                         tbl.ClassName = Inflector.MakeSingular(tbl.CleanName);
                         if (rdr["Comment"] != null)
                         {
-                            tbl.Comment = rdr["Comment"].ToString();
+                            tbl.Comment = Utils.FormatComment(rdr["Comment"].ToString());
                         }
                         result.Add(tbl);
                     }
@@ -97,7 +97,16 @@ namespace Zeje.T4_
                         col.IsAutoIncrement = ((int)rdr["IsIdentity"]) == 1;
                         if (rdr["Comment"] != null)
                         {
-                            col.Comment = rdr["Comment"].ToString();
+                            col.Comment = Utils.FormatComment(rdr["Comment"].ToString());
+                        }
+                        if (rdr["DataType"] != null)
+                        {
+                            col.DataType = rdr["DataType"].ToString();
+                        }
+
+                        if (rdr["MaxLength"] != null)
+                        {
+                            col.MaxLength = rdr["MaxLength"].ToString();
                         }
                         result.Add(col);
                     }

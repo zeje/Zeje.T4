@@ -22,6 +22,12 @@ namespace Zeje.T4_
                 return this.Columns.SingleOrDefault(x => x.IsPK);
             }
         }
+
+        public bool IsPrimaryKeyColumn(string columnName)
+        {
+            return Columns.Single(x => string.Compare(x.Name, columnName, true) == 0).IsPK;
+        }
+
         public DBColumn GetColumn(string columnName)
         {
             return Columns.Single(x => string.Compare(x.Name, columnName, true) == 0);

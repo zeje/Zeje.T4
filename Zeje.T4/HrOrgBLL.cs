@@ -14,7 +14,8 @@ using Zeje.DAL;
 
 namespace Zeje.BLL
 {
-    /// <summary>HrOrg
+    /// <summary>
+	/// 组织架构
     /// </summary> 
     public partial class HrOrgBLL
     {

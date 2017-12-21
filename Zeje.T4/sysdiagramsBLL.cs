@@ -14,7 +14,8 @@ using Zeje.DAL;
 
 namespace Zeje.BLL
 {
-    /// <summary>sysdiagrams
+    /// <summary>
+	/// 
     /// </summary> 
     public partial class sysdiagramsBLL
     {

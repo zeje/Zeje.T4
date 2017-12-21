@@ -1,0 +1,73 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ include file="EF.Utility.CS.ttinclude"#>
+<#@ assembly name="$(SolutionDir)\Zeje.T4_\bin\Debug\Zeje.T4_.dll" #>
+<#@ import namespace="Zeje.T4_" #>
+<#
+/*
+This code is part of the Dapper.SimpleCRUD project
+It is based on the T4 template from the PetaPoco project which in turn is based on the subsonic project.
+ -----------------------------------------------------------------------------------------
+ This template can read minimal schema information from the following databases:
+
+	* SQL Server
+ -----------------------------------------------------------------------------------------
+*/
+    var	fileManager = EntityFrameworkTemplateFileManager.Create(this);
+    fileManager.StartHeader();
+    fileManager.EndBlock();
+    
+    SchemaReaderFactory srf = new SchemaReaderFactory();
+
+    srf.ConnectionString = "Data Source=127.0.0.1;Database=ABDoor_BlackCatMonitor;User ID=root;Password=123456";
+    srf.ProviderName = "MySql.Data.MySqlClient";
+	srf.RemoveTablePrefixes = new string[] { "t_monitor_", "tbl_", "tb_", "t_" };
+	var lstTable = srf.LoadTables();
+    var Namespace = "Zeje.Models"; //"$rootnamespace$.Models";
+    var includeRelationships = true;
+#>
+<#
+	if (lstTable.Count>0)
+	{
+        for(int i = 0; i < lstTable.Count; i++)
+        {
+            DBTable tbl = lstTable[i];
+			if(tbl.Ignore) continue;
+            fileManager.StartNewFile(Utils.CamelName(tbl.ClassName) + ".cs");
+#>
+
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
+
+namespace <#=Namespace #>
+{
+    /// <summary>
+	/// <#= Utils.FormatComment(tbl.Comment) #>
+	/// <#= tbl.Schema + "." + tbl.Name #>
+    /// </summary> 
+	[Table("<#=tbl.Name#>")]
+    public partial class <#=Utils.CamelName(tbl.ClassName)#>
+    {
+<# 
+foreach(DBColumn col in tbl.Columns)
+{
+	if(col.Ignore) continue;
+#>
+		/// <summary>
+		///<#= Utils.FormatComment(col.Comment)#>
+		/// </summary>  
+		<# if (tbl.IsPrimaryKeyColumn(col.PropertyName)) { #>[Key]<#}#>[Column("<#= col.Name #>")]
+		public <#=col.PropertyType #><#=Utils.CheckNullable(col)#> <#=Utils.CamelName(col.PropertyName) #> { get; set; }
+<#
+}
+#>
+    }
+}
+<# 
+            fileManager.EndBlock();
+        }
+    }
+
+    fileManager.Process(true); 
+#>

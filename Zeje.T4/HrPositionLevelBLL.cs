@@ -14,7 +14,8 @@ using Zeje.DAL;
 
 namespace Zeje.BLL
 {
-    /// <summary>HrPositionLevel
+    /// <summary>
+	/// 
     /// </summary> 
     public partial class HrPositionLevelBLL
     {

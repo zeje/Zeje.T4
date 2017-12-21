@@ -14,7 +14,8 @@ using Zeje.DAL;
 
 namespace Zeje.BLL
 {
-    /// <summary>HrOrgHStaff
+    /// <summary>
+	/// 角色具有人员关系
     /// </summary> 
     public partial class HrOrgHStaffBLL
     {

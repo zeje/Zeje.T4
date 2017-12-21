@@ -14,7 +14,8 @@ using Zeje.DAL;
 
 namespace Zeje.BLL
 {
-    /// <summary>HrStaff
+    /// <summary>
+	/// 员工
     /// </summary> 
     public partial class HrStaffBLL
     {

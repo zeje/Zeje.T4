@@ -48,7 +48,8 @@ using <#= strDALNamespace #>;
 
 namespace <#= strBLLNamespace #>
 {
-    /// <summary><#= tbl.Name ?? "" #>
+    /// <summary>
+	/// <#=Utils.FormatComment(tbl.Comment)#>
     /// </summary> 
     public partial class <#=tbl.Name#>BLL
     {
