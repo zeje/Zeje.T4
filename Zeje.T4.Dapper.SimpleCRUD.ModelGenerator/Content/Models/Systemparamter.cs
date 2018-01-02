@@ -9,6 +9,7 @@ namespace Zeje.Models
     /// <summary>
 	/// 
 	/// abdoor_blackcatmonitor.t_monitor_systemparamters
+	/// systemparamter
     /// </summary> 
 	[Table("t_monitor_systemparamters")]
     public partial class Systemparamter

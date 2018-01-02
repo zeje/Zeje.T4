@@ -9,6 +9,7 @@ namespace Zeje.Models
     /// <summary>
 	/// 
 	/// abdoor_blackcatmonitor.t_monitor_user
+	/// user
     /// </summary> 
 	[Table("t_monitor_user")]
     public partial class User

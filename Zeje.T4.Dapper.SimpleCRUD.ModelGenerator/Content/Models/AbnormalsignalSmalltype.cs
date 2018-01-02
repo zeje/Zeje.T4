@@ -9,6 +9,7 @@ namespace Zeje.Models
     /// <summary>
 	/// 
 	/// abdoor_blackcatmonitor.t_abnormalsignal_smalltype
+	/// abnormalsignal_smalltype
     /// </summary> 
 	[Table("t_abnormalsignal_smalltype")]
     public partial class AbnormalsignalSmalltype

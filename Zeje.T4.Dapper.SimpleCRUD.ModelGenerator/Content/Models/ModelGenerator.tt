@@ -20,7 +20,7 @@ It is based on the T4 template from the PetaPoco project which in turn is based 
 
     srf.ConnectionString = "Data Source=127.0.0.1;Database=ABDoor_BlackCatMonitor;User ID=root;Password=123456";
     srf.ProviderName = "MySql.Data.MySqlClient";
-	srf.RemoveTablePrefixes = new string[] { "t_monitor_", "tbl_", "tb_", "t_" };
+	srf.RemoveTablePrefixes = new string[] { "t_monitor_", "tbl_", "tb_", "t_"};
 	var lstTable = srf.LoadTables();
     var Namespace = "Zeje.Models"; //"$rootnamespace$.Models";
     var includeRelationships = true;
@@ -45,6 +45,7 @@ namespace <#=Namespace #>
     /// <summary>
 	/// <#= Utils.FormatComment(tbl.Comment) #>
 	/// <#= tbl.Schema + "." + tbl.Name #>
+	/// <#= tbl.ClassName #>
     /// </summary> 
 	[Table("<#=tbl.Name#>")]
     public partial class <#=Utils.CamelName(tbl.ClassName)#>

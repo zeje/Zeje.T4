@@ -9,6 +9,7 @@ namespace Zeje.Models
     /// <summary>
 	/// 
 	/// abdoor_blackcatmonitor.t_monitor_blackcat_info
+	/// blackcat_info
     /// </summary> 
 	[Table("t_monitor_blackcat_info")]
     public partial class BlackcatInfo

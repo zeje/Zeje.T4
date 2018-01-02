@@ -9,6 +9,7 @@ namespace Zeje.Models
     /// <summary>
 	/// 
 	/// abdoor_blackcatmonitor.t_monitor_modetimeset
+	/// detimeset
     /// </summary> 
 	[Table("t_monitor_modetimeset")]
     public partial class Detimeset

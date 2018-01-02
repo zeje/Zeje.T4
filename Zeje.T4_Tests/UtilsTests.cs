@@ -14,8 +14,11 @@ namespace Zeje.T4_.Tests
         [TestMethod()]
         public void CamelNameTest()
         {
+            
             string result = Utils.CamelName(null);
             Assert.AreEqual("", result);
+            result = Utils.CamelName("t_monitor_tvcontent");
+            Assert.AreEqual("t_monitor_tvcontent", result);
             result = Utils.CamelName("_");
             Assert.AreEqual("_", result);
             result = Utils.CamelName("a");

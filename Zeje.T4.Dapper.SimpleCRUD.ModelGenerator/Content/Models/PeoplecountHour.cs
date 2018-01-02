@@ -9,6 +9,7 @@ namespace Zeje.Models
     /// <summary>
 	/// 
 	/// abdoor_blackcatmonitor.t_monitor_peoplecount_hour
+	/// peoplecount_hour
     /// </summary> 
 	[Table("t_monitor_peoplecount_hour")]
     public partial class PeoplecountHour

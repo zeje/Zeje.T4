@@ -9,6 +9,7 @@ namespace Zeje.Models
     /// <summary>
 	/// 
 	/// abdoor_blackcatmonitor.t_monitor_cat_equipment
+	/// cat_equipment
     /// </summary> 
 	[Table("t_monitor_cat_equipment")]
     public partial class CatEquipment

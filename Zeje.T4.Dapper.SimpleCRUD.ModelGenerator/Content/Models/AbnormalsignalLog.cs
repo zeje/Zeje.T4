@@ -9,6 +9,7 @@ namespace Zeje.Models
     /// <summary>
 	/// 
 	/// abdoor_blackcatmonitor.t_monitor_abnormalsignal_log
+	/// abnormalsignal_log
     /// </summary> 
 	[Table("t_monitor_abnormalsignal_log")]
     public partial class AbnormalsignalLog

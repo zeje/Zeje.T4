@@ -9,6 +9,7 @@ namespace Zeje.Models
     /// <summary>
 	/// 
 	/// abdoor_blackcatmonitor.t_monitor_operate_log
+	/// perate_log
     /// </summary> 
 	[Table("t_monitor_operate_log")]
     public partial class PerateLog
