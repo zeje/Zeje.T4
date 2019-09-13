@@ -1,4 +1,7 @@
-﻿using System;
+﻿#if NETSTANDARD
+using Serenity.Data;
+#endif
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;

@@ -29,6 +29,7 @@ namespace Zeje.T4_
                         tbl.IsView = string.Compare(rdr["TABLE_TYPE"].ToString(), "View", true) == 0;
                         tbl.CleanName = Utils.CleanUp(tbl.Name);
                         tbl.ClassName = Inflector.MakeSingular(tbl.CleanName);
+                        tbl.Comment = rdr["TABLE_COMMENT"].ToString();
                         result.Add(tbl);
                     }
                 }
@@ -50,6 +51,7 @@ namespace Zeje.T4_
                     col.IsNullable = row["IS_NULLABLE"].ToString() == "YES";
                     col.IsPK = row["COLUMN_KEY"].ToString() == "PRI";
                     col.IsAutoIncrement = row["extra"].ToString().ToLower().IndexOf("auto_increment") >= 0;
+                    col.Comment = row["COLUMN_COMMENT"].ToString();
                     item.Columns.Add(col);
                 }
             }
