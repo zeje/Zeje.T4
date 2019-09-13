@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <!--*-->
+    <id>Zeje.T4_</id>
+    <!--*-->
+    <version>1.0.2</version>
+    <title>Zeje.T4_</title>
+    <!--*-->
+    <authors>Zeje.me</authors>
+    <owners>Zeje.me</owners>
+    <!--
+    <licenseUrl></licenseUrl>
+    <projectUrl></projectUrl>
+    <iconUrl></iconUrl>
+-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <!--*-->
+    <description>Zeje的T4模板生成辅助类</description>
+    <!--*-->
+    <releaseNotes>mysql支持增强</releaseNotes>
+    <copyright>Copyright ©  2019-2010</copyright>
+    <tags>
+    </tags>
+    <dependencies>
+      <!--
+      <dependency id="SampleDependency" version="1.0" />
+-->
+    </dependencies>
+  </metadata>
+</package>
