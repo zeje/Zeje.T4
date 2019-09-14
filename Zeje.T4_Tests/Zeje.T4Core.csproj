@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Zeje.T4Core</AssemblyName>
+    <RootNamespace>Zeje.T4Core</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Zeje.T4_\Constants.cs" Link="Constants.cs" />
+    <Compile Include="..\Zeje.T4_\DBColumn.cs" Link="DBColumn.cs" />
+    <Compile Include="..\Zeje.T4_\DBTable.cs" Link="DBTable.cs" />
+    <Compile Include="..\Zeje.T4_\DBTables.cs" Link="DBTables.cs" />
+    <Compile Include="..\Zeje.T4_\Inflector.cs" Link="Inflector.cs" />
+    <Compile Include="..\Zeje.T4_\MySqlSchemaReader.cs" Link="MySqlSchemaReader.cs" />
+    <Compile Include="..\Zeje.T4_\OracleSchemaReader.cs" Link="OracleSchemaReader.cs" />
+    <Compile Include="..\Zeje.T4_\PostGreSqlSchemaReader.cs" Link="PostGreSqlSchemaReader.cs" />
+    <Compile Include="..\Zeje.T4_\SchemaReader.cs" Link="SchemaReader.cs" />
+    <Compile Include="..\Zeje.T4_\SchemaReaderFactory.cs" Link="SchemaReaderFactory.cs" />
+    <Compile Include="..\Zeje.T4_\SqlServerCeSchemaReader.cs" Link="SqlServerCeSchemaReader.cs" />
+    <Compile Include="..\Zeje.T4_\SqlServerSchemaReader.cs" Link="SqlServerSchemaReader.cs" />
+    <Compile Include="..\Zeje.T4_\Utils.cs" Link="Utils.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.Common" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,7 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Zeje.T4Core</AssemblyName>
+    <RootNamespace>Zeje.T4Core</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Serenity.Data" Version="3.9.11" />
     <PackageReference Include="System.Data.Common" Version="4.3.0" />
   </ItemGroup>
 

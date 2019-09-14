@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zeje.Comment_", "Zeje.Comme
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zeje.T4_.MySql.Tests", "Zeje.T4_.MySql.Tests\Zeje.T4_.MySql.Tests.csproj", "{A090041E-1AD1-4F56-B61E-9BA64BAE7243}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zeje.T4_.Core", "Zeje.T4_.Core\Zeje.T4_.Core.csproj", "{C5718003-F7EC-416F-844B-FD8D5DAAA6B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zeje.T4Core", "Zeje.T4Core\Zeje.T4Core.csproj", "{61FDC188-1109-42B7-BD97-181C48D2DFDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,10 @@ Global
 		{A090041E-1AD1-4F56-B61E-9BA64BAE7243}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A090041E-1AD1-4F56-B61E-9BA64BAE7243}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A090041E-1AD1-4F56-B61E-9BA64BAE7243}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C5718003-F7EC-416F-844B-FD8D5DAAA6B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5718003-F7EC-416F-844B-FD8D5DAAA6B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5718003-F7EC-416F-844B-FD8D5DAAA6B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5718003-F7EC-416F-844B-FD8D5DAAA6B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61FDC188-1109-42B7-BD97-181C48D2DFDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61FDC188-1109-42B7-BD97-181C48D2DFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61FDC188-1109-42B7-BD97-181C48D2DFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61FDC188-1109-42B7-BD97-181C48D2DFDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
