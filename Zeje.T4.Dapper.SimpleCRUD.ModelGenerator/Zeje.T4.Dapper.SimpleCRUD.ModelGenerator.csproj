@@ -41,42 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Content\Models\AbnormalsignalLog.cs">
-      <DependentUpon>ModelGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Models\AbnormalsignalSmalltype.cs">
-      <DependentUpon>ModelGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Models\BlackcatInfo.cs">
-      <DependentUpon>ModelGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Models\CatEquipment.cs">
-      <DependentUpon>ModelGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Models\Detimeset.cs">
-      <DependentUpon>ModelGenerator.tt</DependentUpon>
-    </Compile>
     <Compile Include="Content\Models\ModelGenerator1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Models\PeoplecountDay.cs">
-      <DependentUpon>ModelGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Models\PeoplecountHour.cs">
-      <DependentUpon>ModelGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Models\PerateLog.cs">
-      <DependentUpon>ModelGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Models\Systemparamter.cs">
-      <DependentUpon>ModelGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Models\User.cs">
-      <DependentUpon>ModelGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Models\Vcontent.cs">
       <DependentUpon>ModelGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

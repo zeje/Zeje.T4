@@ -28,7 +28,7 @@ namespace Zeje.T4_
                         tbl.Schema = rdr["TABLE_SCHEMA"].ToString();
                         tbl.IsView = string.Compare(rdr["TABLE_TYPE"].ToString(), "View", true) == 0;
                         tbl.CleanName = Utils.CleanUp(tbl.Name);
-                        tbl.ClassName = Inflector.MakeSingular(tbl.CleanName);
+                        tbl.ClassName = tbl.CleanName;
                         tbl.Comment = rdr["TABLE_COMMENT"].ToString();
                         result.Add(tbl);
                     }

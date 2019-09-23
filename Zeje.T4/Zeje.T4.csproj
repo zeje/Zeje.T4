@@ -46,6 +46,13 @@
     <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.7.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.7.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF5, Version=6.7.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.7.9\lib\net45\MySql.Data.Entity.EF5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -58,6 +65,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <T4ReferencePath Include="$(TargetDir)" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbBase.cs" />
@@ -186,6 +196,10 @@
     <Content Include="Zeje.Hr.Dapper.DAL.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Zeje.Hr.Dapper.DAL1.cs</LastGenOutput>
+    </Content>
+    <Content Include="QXExchange.Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QXExchange.Model.cs</LastGenOutput>
     </Content>
     <Content Include="Zeje.Hr.Dapper.Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

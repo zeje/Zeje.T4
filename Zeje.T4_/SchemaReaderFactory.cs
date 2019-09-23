@@ -30,7 +30,7 @@ namespace Zeje.T4_
         /// </summary>
         public string[] ExcludeTablePrefixes = new string[] { "aspnet_", "webpages_", "sysdiagrams" };
 
-        public string[] RemoveTablePrefixes = new string[] { "tbl_", "tb_", "t_" };
+        public string[] RemoveTablePrefixes = new string[] { "tbl_", "tb_", "t_" , "b_" , "dt_"};
         /// <summary>
         /// 连接字符串
         /// </summary>
@@ -72,7 +72,11 @@ namespace Zeje.T4_
                  {
                      foreach (var item in RemoveTablePrefixes)
                      {
-                         if (t.ClassName.StartsWith(item)) t.ClassName = t.ClassName.TrimStart(item.ToCharArray());
+                         if (t.ClassName.StartsWith(item))
+                         {
+                             t.ClassName = t.ClassName.Substring(item.Length);
+                         }
+
                      }
 
                      t.ClassName = ClassPrefix + t.ClassName + ClassSuffix;
@@ -156,7 +160,7 @@ namespace Zeje.T4_
                     return result;
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 return new T();
             }

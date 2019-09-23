@@ -4,7 +4,7 @@
     <!--*-->
     <id>Zeje.T4_</id>
     <!--*-->
-    <version>1.0.2</version>
+    <version>1.0.6.4</version>
     <title>Zeje.T4_</title>
     <!--*-->
     <authors>Zeje.me</authors>
@@ -18,7 +18,7 @@
     <!--*-->
     <description>Zeje的T4模板生成辅助类</description>
     <!--*-->
-    <releaseNotes>mysql支持增强</releaseNotes>
+    <releaseNotes>mysql 类名处理</releaseNotes>
     <copyright>Copyright ©  2019-2010</copyright>
     <tags>
     </tags>
